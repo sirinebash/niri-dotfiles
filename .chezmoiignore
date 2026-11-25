@@ -1,0 +1,5 @@
+README.md
+**/*.bak
+**/.zcompdump*
+.config/zsh/plugins/**
+.config/tmux/plugins/**

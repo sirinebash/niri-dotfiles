@@ -1,0 +1,78 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
+  "display": {
+    "key": {
+      "width": 10,
+    },
+    "size": {
+      "binaryPrefix": "jedec",
+    },
+    "separator": "",
+    "color": {
+      "output": "#cdd6f4",
+    },
+  },
+  "logo": {
+    "type": "auto",
+    "source": "~/.config/fastfetch/logo/kitten_asci",
+    "width": 20,
+    "height": 14,
+    "padding": {
+      "top": 0,
+      "left": 1,
+    },
+  },
+  "modules": [
+    "break",
+    { "type": "host", "key": "ho", "keyColor": "#cba6f7", "format": "{name}" },
+    { "type": "os", "key": "os", "keyColor": "#a6e3a1", "format": "{name}" },
+    { "type": "kernel", "key": "ker", "keyColor": "#89b4fa" },
+    { "type": "packages", "key": "pkgs", "keyColor": "#f9e2af" },
+    {
+      "type": "shell",
+      "key": "sh",
+      "keyColor": "#f38ba8",
+      "format": "{pretty-name}",
+    },
+    {
+      "type": "terminal",
+      "key": "ter",
+      "keyColor": "#a6e3a1",
+      "format": "{pretty-name}",
+    },
+    { "type": "terminalfont", "key": "fn", "keyColor": "#f38ba8" },
+    {
+      "type": "wm",
+      "key": "wm",
+      "keyColor": "#89b4fa",
+      "format": "{pretty-name}",
+    },
+    { "type": "uptime", "key": "up", "keyColor": "#fab387" },
+    { "type": "cpu", "key": "cpu", "keyColor": "#cba6f7", "format": "{name}" },
+    {
+      "type": "memory",
+      "key": "ram",
+      "keyColor": "#a6e3a1",
+      "format": "{used} / {total}",
+    },
+    {
+      "type": "disk",
+      "key": "disk",
+      "keyColor": "#89b4fa",
+      "folders": ["/"],
+      "format": "{size-used} / {size-total}",
+    },
+    {
+      "type": "battery",
+      "key": "bat",
+      "keyColor": "#94e2d5",
+      "format": "{capacity} {status}",
+    },
+    "break",
+    {
+      "type": "custom",
+      "format": "\u001b[38;2;249;226;175m󰮯\u001b[0m \u001b[38;2;203;166;247m󰊠\u001b[0m \u001b[38;2;137;180;250m󰊠\u001b[0m \u001b[38;2;243;139;168m󰊠\u001b[0m \u001b[38;2;250;179;135m󰊠\u001b[0m \u001b[38;2;148;226;213m󰊠\u001b[0m \u001b[38;2;166;227;161m󰊠\u001b[0m \u001b[38;2;147;153;178m󰊠\u001b[0m",
+    },
+    "break",
+  ],
+}

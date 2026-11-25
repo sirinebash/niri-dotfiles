@@ -1,0 +1,5 @@
+[theme]
+mode = "light"
+
+[theme.templates]
+enable_builtin_templates = false

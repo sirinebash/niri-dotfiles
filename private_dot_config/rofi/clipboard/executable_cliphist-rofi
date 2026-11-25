@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+tmp_dir="/tmp/cliphist"
+mkdir -p "$tmp_dir"
+
+if [ -z "$1" ]; then
+    printf 'clear history\0icon\x1fuser-trash\n'
+
+    cliphist list | while IFS=$'\t' read -r id rest; do
+        if [[ "$rest" == *"binary data"* ]]; then
+            img="$tmp_dir/$id.png"
+            # Always output the path — generate in background if missing
+            if [ ! -f "$img" ]; then
+                cliphist decode "$id" | magick - -resize 128x128^ -gravity center -extent 128x128 "$img" 2>/dev/null &
+            fi
+            printf '%s\t[Image]\0icon\x1f%s\n' "$id" "$img"
+        else
+            printf '%s\t%s\0icon\x1fedit-copy\n' "$id" "$rest"
+        fi
+    done
+
+else
+    if [[ "$1" == "clear history" ]]; then
+        cliphist wipe
+        rm -rf "$tmp_dir"/*
+    else
+        cliphist decode "${1%%$'\t'*}" | wl-copy
+    fi
+fi
