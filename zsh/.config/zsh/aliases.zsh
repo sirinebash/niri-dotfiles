@@ -20,12 +20,9 @@ alias grep='grep --color=auto'
 alias diff='diff --color=auto'
 alias df='df -h'                    # sizes in K/M/G instead of raw blocks
 
-alias rm='rm -i'
-
 # --- Navigation ---
 # -- stops zsh parsing the - as a flag; cd - returns to the previous directory.
 alias -- -='cd -'
-
 
 # --- Editor ---
 alias v='nvim'

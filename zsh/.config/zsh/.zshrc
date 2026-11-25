@@ -6,6 +6,10 @@
 #   CLI tools:    eza, bat, nvim, ripgrep
 #   Node:         fnm
 
+#  if [[ -z "$TMUX" ]] && command -v tmux >/dev/null; then
+ # exec tmux new-session -A -s main
+ #:w fi
+
 # --- History ---
 HISTFILE="$XDG_STATE_HOME/zsh/history"
 HISTSIZE=100000   # entries kept in memory for this session
@@ -35,10 +39,19 @@ setopt NUMERIC_GLOB_SORT      # sort file9 before file10, not after file1
 setopt INTERACTIVE_COMMENTS   # # starts a comment at the prompt too
 setopt AUTO_PARAM_SLASH       # completed directories get a trailing slash
 setopt NOBEEP                 # no terminal bell
+setopt CORRECT                # offer a fix for a mistyped command name
+SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f? [nyae] '
 
 stty stop undef               # free ^S for ZLE (default: freeze the terminal)
 stty start undef              # free ^Q for ZLE (default: unfreeze)
 
+# --- Homebrew ---
+if [[ -x /home/linuxbrew/.linuxbrew/bin/brew ]]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+  # brew prepends itself to PATH; move it to the end so pacman binaries win
+  path=(${path:#/home/linuxbrew/.linuxbrew/bin} ${path:#/home/linuxbrew/.linuxbrew/sbin})
+  path+=(/home/linuxbrew/.linuxbrew/bin /home/linuxbrew/.linuxbrew/sbin)
+fi
 
 # =========================================================
 # Completion

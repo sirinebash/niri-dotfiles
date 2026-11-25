@@ -8,4 +8,5 @@
     surface:           #1e1e2e;
     surface-container: #313244;
     on-surface:        #cdd6f4;
+    on-surface-variant: #a6adc8;
 }
